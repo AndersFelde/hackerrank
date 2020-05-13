@@ -1,9 +1,6 @@
 def merge_the_tools(string, k):
     s = string
     n = len(s)
-    print(n)
-    print(k)
-    print(n/k)
 
     if n % k > 0 or n < 1 or n > 10000 or k < 1 or k > n:
         exit()
@@ -11,7 +8,7 @@ def merge_the_tools(string, k):
     i = 0
     outList = list()
     for x in range(split):
-        outList.append(s[i:i + split])
+        outList.append(s[i:i + int(n/split)])
         i = i + split
 
     result = list()
@@ -24,6 +21,7 @@ def merge_the_tools(string, k):
                     print(a)
 
     for out in outList:
+        print(out)
         x = 0
         while x < len(out):  # for hver bokstav i out
             check = out[x]
