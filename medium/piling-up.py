@@ -24,19 +24,3 @@ for _ in range(int(input())):
         else:
             print("No")
             break
-
-            """     print("Yes")
-                break
-            x = 0
-            while lst[x] == lst[len(lst) - x-1]:
-                y = x
-                x = x+1
-                if lst[x] > lst[len(lst) - y-1]:
-                    prev = lst[0]
-                    lst.pop(0)
-                    break
-                elif lst[x] < lst[len(lst) - y-1]:
-                    prev = lst[len(lst)-1]
-                    lst.pop()
-                    break
-                if x > 2: """
