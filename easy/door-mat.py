@@ -5,30 +5,30 @@ width = lst[1]
 midHeight = (lst[0] // 2)
 midWidth = (lst[1] // 2)
 
-z = 0
-y = 0
-heightCount = 0
-for _ in range(height):
+pattern = ".|."
+patternAmount = 0
+
+
+for currentLine in range(height):
     x = 0
     while x < width:
-        if(y == midHeight):
-            print("-" * (midWidth - 3) + "WELCOME" + "-" * (midWidth - 3))
+        if(patternAmount == midHeight):
+            print("-" * (midWidth - len(pattern)) +
+                  "WELCOME" + "-" * (midWidth - len(pattern)))
             break
-        elif x < midWidth - (3*y+1) or x > midWidth + (3*y+1):
+        elif x < midWidth - (len(pattern)*patternAmount+1) or x > midWidth + (len(pattern)*patternAmount+1):
             if(x == width - 1):
                 print("-")
             else:
                 print("-", end="")
             x = x+1
-        elif x == midWidth - (3*y+1):
-            for _ in range(z + 1):
-                print(".|.", end="")
-                x = x+3
-    if(heightCount < midHeight):
-        z = z+2
-        y = y+1
+        else:
+            """ x == midWidth - (len(pattern)*patternAmount+1) """
+            for _ in range(patternAmount*2 + 1):
+                print(pattern, end="")
+                x = x+len(pattern)
+    if(currentLine < midHeight):
+        patternAmount += 1
     else:
-        z = z-2
-        y = y - 1
+        patternAmount -= 1
     x = 0
-    heightCount = heightCount + 1
