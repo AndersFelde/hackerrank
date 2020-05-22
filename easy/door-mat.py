@@ -23,7 +23,6 @@ for currentLine in range(height):
                 print("-", end="")
             x = x+1
         else:
-            """ x == midWidth - (len(pattern)*patternAmount+1) """
             for _ in range(patternAmount*2 + 1):
                 print(pattern, end="")
                 x = x+len(pattern)
