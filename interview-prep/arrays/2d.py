@@ -7,32 +7,26 @@ import sys
 # Complete the hourglassSum function below.
 
 
-def hourglassSum(arr):
-    count = {}
-    for x in arr:
-        for y in x:
-            if y in count:
-                count[y] += 1
-            else:
-                count[y] = 1
+def hourglassSum(a):
+    pSum = -9999999**9
 
-    sortedCount = sorted(count.items(), reverse=True)
-    length = 0
-    a = 0
-    for key, value in sortedCount:
-        if length + int(value) > 7:
-            mult = int(length - 7)
-            a += int(int(key) * mult)
-            break
+    for x in range(len(a)-2):
+        for y in range(len(a[0])-2):
+            nSum = a[x][y]
+            nSum += a[x][y+1]
+            nSum += a[x][y+2]
+            nSum += a[x+1][y+1]
+            nSum += a[x+2][y]
+            nSum += a[x+2][y+1]
+            nSum += a[x+2][y+2]
+            if nSum > pSum:
+                pSum = nSum
 
-        a += int(int(key) * int(value))
-        length += value
-
-    return a
+    return pSum
 
 
 if __name__ == '__main__':
-    """ fptr = open(os.environ['OUTPUT_PATH'], 'w') """
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
     arr = []
 
@@ -42,7 +36,6 @@ if __name__ == '__main__':
     result = hourglassSum(arr)
 
     print(result)
-    """ fptr.write(str(result) + '\n')
+    fptr.write(str(result) + '\n')
 
     fptr.close()
- """
